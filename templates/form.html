@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Put Me On!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #d1d5db, #93c5fd, #c084fc);
+      background-size: 200% 200%;
+      animation: gradientShift 10s ease infinite;
+      font-family: 'Verdana', sans-serif;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .y2k-card {
+      box-shadow: 0 0 20px #7dd3fc, 0 0 40px #c084fc;
+      background: linear-gradient(to bottom right, #e0f2fe, #ede9fe);
+      border: 2px solid #a5b4fc;
+    }
+
+    .glow-button {
+      background: linear-gradient(to right, #a5b4fc, #c084fc);
+      box-shadow: 0 0 10px #a78bfa, 0 0 20px #7dd3fc;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-gray-800">
+
+  <div class="y2k-card rounded-2xl p-8 w-full max-w-md backdrop-blur-lg">
+    <h1 class="text-4xl font-extrabold text-center text-purple-700 mb-2 drop-shadow-md">💿 Put Me On!</h1>
+    <p class="text-center text-sm text-gray-600 mb-6 italic">Bless my untrained ear... 🌐</p>
+
+    <form method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-bold text-gray-700">Song Name</label>
+        <input type="text" name="song_name" required
+               class="mt-1 w-full rounded-lg border border-purple-300 px-3 py-2 focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-60">
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold text-gray-700">Artist</label>
+        <input type="text" name="artist" required
+               class="mt-1 w-full rounded-lg border border-purple-300 px-3 py-2 focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-60">
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold text-gray-700">Link (Spotify/YouTube)</label>
+        <input type="url" name="link"
+               class="mt-1 w-full rounded-lg border border-purple-300 px-3 py-2 focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-60">
+      </div>
+
+      <div>
+        <label class="block text-sm font-bold text-gray-700">Your Name (Optional)</label>
+        <input type="text" name="submitter"
+               class="mt-1 w-full rounded-lg border border-purple-300 px-3 py-2 focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-60">
+      </div>
+
+      <button type="submit"
+              class="glow-button mt-4 w-full text-white font-semibold py-2 rounded-xl hover:opacity-90 transition duration-300">
+        🚀 Submit
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
