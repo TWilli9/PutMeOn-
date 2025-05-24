@@ -13,7 +13,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds_dict = json.loads(os.environ['GOOGLE_CREDENTIALS_JSON'])
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
-sheet = client.open('Song Suggestions').sheet1  # or use .worksheet('Sheet1') if needed
+sheet = client.open('Song Suggestions').sheet1  
 
 @app.route('/', methods=['GET', 'POST'])
 def submit_song():
@@ -21,10 +21,10 @@ def submit_song():
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         song_name = request.form['song_name']
         artist = request.form['artist']
-        link = request.form['link']
+        description = request.form.get('description', '')
         submitter = request.form['submitter']
 
-        sheet.append_row([timestamp, song_name, artist, link, submitter])
+        sheet.append_row([timestamp, song_name, artist, description, submitter])
         return redirect('/thankyou')
     return render_template('form.html')
 
